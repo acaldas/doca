@@ -1,5 +1,6 @@
 ---
 import { ViewTransitions } from "astro:transitions";
+import '@fontsource/montserrat';
 
 interface Props {
   title: string;
@@ -13,7 +14,9 @@ const { title } = Astro.props;
   <head>
     <meta charset="utf-8" />
     <title>{title}</title>
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
     <meta name="viewport" content="width=device-width" />
     <meta name="generator" content={Astro.generator} />
     <ViewTransitions fallback="swap" />
@@ -22,28 +25,11 @@ const { title } = Astro.props;
     <slot />
     <style is:global>
       :root {
-        --accent: 124, 58, 237;
-        --accent-gradient: linear-gradient(
-          45deg,
-          rgb(var(--accent)),
-          #da62c4 30%,
-          white 60%
-        );
+        font-family: Montserrat, system-ui, sans-serif;
       }
-      html {
-        font-family: system-ui, sans-serif;
-        background-color: #f6f6f6;
-      }
-      code {
-        font-family:
-          Menlo,
-          Monaco,
-          Lucida Console,
-          Liberation Mono,
-          DejaVu Sans Mono,
-          Bitstream Vera Sans Mono,
-          Courier New,
-          monospace;
+
+      .title {
+        font-family: "Montserrat Alternates", Montserrat-alternate, system-ui, sans-serif;
       }
     </style>
   </body>
