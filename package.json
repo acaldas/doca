@@ -1,0 +1,63 @@
+{
+  "name": "astro-starter-strict",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare": "husky install",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "clean": "git clean --interactive -dx --exclude .env.local --exclude \".env.*.local\" --exclude node_modules/ --exclude .husky/",
+    "lint": "npm-run-all --parallel lint:astro lint:js+ts lint:format lint:types",
+    "lint:astro": "astro check",
+    "lint:js+ts": "eslint --ext .astro,.js,.jsx,.cjs,.ts,.tsx,.cts --ignore-path .gitignore .",
+    "lint:format": "prettier \"**/*\" --check --ignore-unknown",
+    "lint:types": "tsc --noEmit",
+    "lint:fix": "npm-run-all --serial lint:fix:*",
+    "lint:fix:js+ts": "pnpm run lint:js+ts --fix",
+    "lint:fix:format": "prettier \"**/*\" --write --ignore-unknown"
+  },
+  "dependencies": {
+    "@astrojs/mdx": "1.0.3",
+    "@astrojs/tailwind": "5.0.0",
+    "astro": "3.0.12",
+    "tailwindcss": "3.3.3"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.2.0",
+    "@types/node": "18.17.15",
+    "@typescript-eslint/eslint-plugin": "6.6.0",
+    "@typescript-eslint/parser": "6.6.0",
+    "eslint": "8.49.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-airbnb-typescript": "17.1.0",
+    "eslint-config-prettier": "9.0.0",
+    "eslint-import-resolver-typescript": "3.6.0",
+    "eslint-plugin-astro": "0.29.0",
+    "eslint-plugin-eslint-comments": "3.2.0",
+    "eslint-plugin-import": "2.28.1",
+    "eslint-plugin-jsx-a11y": "6.7.1",
+    "eslint-plugin-regexp": "1.15.0",
+    "eslint-plugin-simple-import-sort": "10.0.0",
+    "eslint-plugin-tailwindcss": "3.13.0",
+    "husky": "8.0.3",
+    "nano-staged": "0.8.0",
+    "npm-run-all": "4.1.5",
+    "prettier": "3.0.3",
+    "prettier-plugin-astro": "0.12.0",
+    "prettier-plugin-tailwindcss": "0.5.4",
+    "typescript": "5.2.2"
+  },
+  "packageManager": "pnpm@8.7.4",
+  "nano-staged": {
+    "*": "prettier --write --ignore-unknown",
+    "*.{astro,js,jsx,cjs,ts,tsx,cts}": "eslint --fix"
+  },
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "rollup"
+      ]
+    }
+  }
+}
