@@ -1,0 +1,25 @@
+---
+interface Props {
+  title?: string;
+  background: "bg-yellow" | "bg-green" | "bg-blue" | "bg-background";
+}
+const { title, background } = Astro.props;
+---
+
+<div
+  class=`min-h-screen ${background} snap-always snap-start p-16 flex flex-col`
+  id={title ? encodeURIComponent(title) : undefined}
+>
+  {
+    title && (
+      <h1
+        class={`${
+          background === "bg-green" ? "text-background" : "text-green"
+        } flex-shrink-0 text-6xl font-bold alternate `}
+      >
+        {title}
+      </h1>
+    )
+  }
+  <slot />
+</div>

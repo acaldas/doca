@@ -1,7 +1,29 @@
 ---
-import { Image } from 'astro:assets';
-import LogoImage from '../assets/logo.png';
+import { Image } from "astro:assets";
+import LogoImage from "../assets/logo.png";
+import HeaderLink from "./header-link.astro";
+
+interface Props {
+  links: string[];
+}
+
+const { links } = Astro.props;
 ---
-<div class="absolute bg-background/50 w-full h-[46px] z-10 px-4 py-3">
-    <Image src={LogoImage} alt="DOCA" height={60} quality='high' class="h-full object-contain object-left" />
+
+<div
+  class="absolute w-full h-[46px] z-10 px-4 py-3 bg-black/10 flex items-center backdrop-blur-sm shadow-md"
+>
+  <Image
+    class="h-full object-contain object-left justify-self-start flex-shrink-0"
+    src={LogoImage}
+    alt="DOCA"
+    width={90}
+    height={60}
+    quality="high"
+  />
+  <div
+    class="flex justify-end sm:justify-center gap-2 sm:gap-8 md:gap-12 xs:mr-2 sm:mr-[90px] flex-1"
+  >
+    {links.map((link) => <HeaderLink title={link} />)}
+  </div>
 </div>

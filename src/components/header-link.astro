@@ -1,0 +1,13 @@
+---
+interface Props {
+  title: string;
+}
+const { title } = Astro.props;
+---
+
+<a
+  class="text-md sm:text-lg text-green font-bold alternate hover:underline underline-offset-2"
+  href={`#${encodeURIComponent(title)}`}
+>
+  {title}
+</a>

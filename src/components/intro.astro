@@ -1,12 +1,12 @@
 ---
-import { Image } from 'astro:assets';
-import IntroImage from "../assets/sea.jpg";
-import LogoImage from "../assets/logo+tagline-white.png";
+import { Image } from "astro:assets";
+// import IntroImage from "../assets/sea.jpg";
+import LogoImage from "../assets/logo+tagline.png";
 ---
 
-<div class="h-screen relative flex justify-center items-center">
-  <Image src={IntroImage} alt="Sea" class="absolute h-full object-cover" />
-  <div class="relative z-10 w-3/5 max-w-[800px] flex flex-col items-center pt-[46px]">
+<div class="flex-1 flex justify-center items-center">
+  <!-- <Image src={IntroImage} alt="Sea" class="absolute h-full object-cover" /> -->
+  <div class="md:w-3/5 max-w-[800px] flex flex-col items-center pt-[46px]">
     <Image src={LogoImage} alt="Doca - Por mais liberdade" class="w-full" />
   </div>
 </div>
