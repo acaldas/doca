@@ -7,7 +7,7 @@ const { title, background } = Astro.props;
 ---
 
 <div
-  class=`min-h-screen ${background} snap-always snap-start p-16 flex flex-col`
+  class=`min-h-screen ${background} snap-always snap-start p-8 sm:p-12 md:p-16 lg:p-20 xl:p-28 flex flex-col`
   id={title ? encodeURIComponent(title) : undefined}
 >
   {
@@ -15,7 +15,7 @@ const { title, background } = Astro.props;
       <h1
         class={`${
           background === "bg-green" ? "text-background" : "text-green"
-        } flex-shrink-0 text-6xl font-bold alternate `}
+        } flex-shrink-0 text-5xl sm:text-6xl font-bold alternate `}
       >
         {title}
       </h1>

@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: Montserrat, system-ui, sans-serif;
+}
+
+@layer components {
+  .form-input {
+    @apply rounded border-0 focus:ring-0 shadow focus:shadow-lg;
+  }
+
+  .form-label {
+    @apply text-green text-lg font-medium mb-2 h-7 inline-block;
+  }
+}
+
+.alternate {
+  font-family: "Montserrat Alternates", Montserrat-alternate, system-ui,
+    sans-serif;
+}
