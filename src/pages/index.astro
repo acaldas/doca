@@ -18,7 +18,11 @@ import SlideItem from "../components/slide-item.astro";
   <main>
     <Slide>
       <SlideItem background="bg-background"><Intro /></SlideItem>
-      <SlideItem title="A Doca" background="bg-blue" className="">
+      <SlideItem
+        title="A Doca"
+        background="bg-blue"
+        className="relative overflow-x-hidden"
+      >
         <Services />
       </SlideItem>
       <SlideItem title="Equipa" background="bg-yellow"><Team /></SlideItem>

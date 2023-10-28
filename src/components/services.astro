@@ -3,9 +3,9 @@ import { Image } from "astro:assets";
 import LogoImage from "../assets/logo_3.svg";
 ---
 
-<div class="w-full h-full flex-1 flex items-center relative">
+<div class="w-full h-full flex-1 flex items-center">
   <div
-    class="w-full max-w-3xl pt-6 lg:pt-10 lg:px-6 flex flex-col items-center flex-grow justify-center prose-sm sm:prose xl:prose-xl relative z-10"
+    class="w-full max-w-3xl pt-6 lg:pt-10 lg:px-6 flex flex-col items-center flex-grow justify-center prose-sm sm:prose xl:prose-xl relative z-10 text-prose"
   >
     <p>
       A nossa missão é ajudar pessoas no tratamento das doenças do comportamento
@@ -16,19 +16,19 @@ import LogoImage from "../assets/logo_3.svg";
     </p>
     <p>
       Sabemos que para isso também é necessário auxiliar aqueles que prestam
-      apoio a estas pessoas, e planeamos também desenvolver projetos de
-      investigação e formação para outros profissionais.
+      poio a estas pessoas. Planeamos ainda desenvolver projetos de investigação
+      e formação para outros profissionais.
     </p>
     <p>
       Pretendemos ser um porto de abrigo para todos aqueles que sofram de
       perturbação do comportamento alimentar e para as suas famílias. Onde se
-      possam sentir compreendidos, seguros e orientados.
+      possam sentir compreendidos, seguros e orientados.
     </p>
   </div>
   <Image
     loading="lazy"
     src={LogoImage}
     alt="Doca - Por mais liberdade"
-    class="blur-xl flex-1 ml-[10%] max-h-[790px] 2xl:static lg:block hidden"
+    class="blur-2xl absolute top-0 bottom-0 right-0 h-full w-auto translate-x-3/4 lg:translate-x-1/2"
   />
 </div>

@@ -22,6 +22,7 @@ export default {
         yellow: "#F8DDA0",
         background: "#FCF5EB",
         text: "#262E38",
+        prose: "#374151",
       },
     },
     keyframes: {
