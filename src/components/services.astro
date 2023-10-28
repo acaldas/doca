@@ -1,10 +1,6 @@
 ---
-import { Image, getImage } from "astro:assets";
+import { Image } from "astro:assets";
 import LogoImage from "../assets/logo_3.svg";
-// class="absolute blur-xl right-[-10%] bottom-[1%] h-screen w-auto lg:max-w-sm xl:max-w-2xl"
-const optimizedBackground = await getImage({
-  src: LogoImage,
-});
 ---
 
 <div class="w-full h-full flex-1 flex items-center relative">

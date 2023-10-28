@@ -23,9 +23,6 @@ if (Astro.request.method === "POST") {
     apiKey.apiKey = import.meta.env.BREVO_API_KEY;
 
     const apiInstance = new Brevo.TransactionalEmailsApi();
-
-    const sendSmtpEmail = new Brevo.SendSmtpEmail();
-
     const response = await apiInstance.sendTransacEmail({
       sender: { email: email || "website@equipadoca.pt", name },
       to: [{ email: import.meta.env.EMAIL_CONTACT, name: "equipadoca.pt" }],

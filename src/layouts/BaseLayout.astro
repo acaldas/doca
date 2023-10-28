@@ -1,15 +1,11 @@
 ---
 import { ViewTransitions } from "astro:transitions";
 import "@fontsource/montserrat";
-import "@fontsource/montserrat/200.css";
-import "@fontsource/montserrat/300.css";
 import "@fontsource/montserrat/500.css";
 import "@fontsource/montserrat/600.css";
 import "@fontsource/montserrat/700.css";
 import "@fontsource/montserrat/800.css";
 import "@fontsource/montserrat-alternates";
-import "@fontsource/montserrat-alternates/200.css";
-import "@fontsource/montserrat-alternates/300.css";
 import "@fontsource/montserrat-alternates/500.css";
 import "@fontsource/montserrat-alternates/600.css";
 import "@fontsource/montserrat-alternates/700.css";
@@ -37,16 +33,16 @@ const { title } = Astro.props;
   </head>
   <body>
     <slot />
-  </body><!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNH7E9TYJ4"
-  ></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() {
-      dataLayer.push(arguments);
-    }
-    gtag("js", new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZNH7E9TYJ4"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag("config", "G-ZNH7E9TYJ4");
-  </script>
+      gtag("config", "G-ZNH7E9TYJ4");
+    </script>
+  </body><!-- Google tag (gtag.js) -->
 </html>
