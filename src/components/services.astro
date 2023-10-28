@@ -1,21 +1,38 @@
-<div
-  class="w-full max-w-3xl pt-6 lg:pt-10 lg:px-6 flex flex-col items-center flex-grow justify-center prose-sm sm:prose lg:prose-xl"
->
-  <p>
-    A nossa missão é ajudar pessoas no tratamento das doenças do comportamento
-    alimentar. Somos uma equipa interdisciplinar, inteiramente dedicada a
-    prestar um serviço de qualidade e consistente, que investe na aprendizagem e
-    constante desenvolvimento. Queremos fazê-lo de uma forma integrativa,
-    empática e inovadora em Portugal.
-  </p>
-  <p>
-    Sabemos que para isso também é necessário auxiliar aqueles que prestam apoio
-    a estas pessoas, e planeamos também desenvolver projetos de investigação e
-    formação para outros profissionais.
-  </p>
-  <p>
-    Pretendemos ser um porto de abrigo para todos aqueles que sofram de
-    perturbação do comportamento alimentar e para as suas famílias. Onde se
-    possam sentir compreendidos, seguros e orientados.
-  </p>
+---
+import { Image, getImage } from "astro:assets";
+import LogoImage from "../assets/logo_3.svg";
+// class="absolute blur-xl right-[-10%] bottom-[1%] h-screen w-auto lg:max-w-sm xl:max-w-2xl"
+const optimizedBackground = await getImage({
+  src: LogoImage,
+});
+---
+
+<div class="w-full h-full flex-1 flex items-center relative">
+  <div
+    class="w-full max-w-3xl pt-6 lg:pt-10 lg:px-6 flex flex-col items-center flex-grow justify-center prose-sm sm:prose xl:prose-xl relative z-10"
+  >
+    <p>
+      A nossa missão é ajudar pessoas no tratamento das doenças do comportamento
+      alimentar. Somos uma equipa interdisciplinar, inteiramente dedicada a
+      prestar um serviço de qualidade e consistente, que investe na aprendizagem
+      e constante desenvolvimento. Queremos fazê-lo de uma forma integrativa,
+      empática e inovadora em Portugal.
+    </p>
+    <p>
+      Sabemos que para isso também é necessário auxiliar aqueles que prestam
+      apoio a estas pessoas, e planeamos também desenvolver projetos de
+      investigação e formação para outros profissionais.
+    </p>
+    <p>
+      Pretendemos ser um porto de abrigo para todos aqueles que sofram de
+      perturbação do comportamento alimentar e para as suas famílias. Onde se
+      possam sentir compreendidos, seguros e orientados.
+    </p>
+  </div>
+  <Image
+    loading="lazy"
+    src={LogoImage}
+    alt="Doca - Por mais liberdade"
+    class="blur-xl flex-1 ml-[10%] max-h-[790px] 2xl:static lg:block hidden"
+  />
 </div>

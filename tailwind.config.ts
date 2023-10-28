@@ -24,6 +24,15 @@ export default {
         text: "#262E38",
       },
     },
+    keyframes: {
+      fade: {
+        "0%": { opacity: "0" },
+        "100%": { transform: "1" },
+      },
+    },
+    animation: {
+      fade: "fade 3s linear forwards",
+    },
   },
   plugins: [Forms, Typography],
 } satisfies Config;

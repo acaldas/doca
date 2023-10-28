@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import LogoImage from "../assets/logo.png";
 import HeaderLink from "./header-link.astro";
+import LogoInstagram from "../assets/instagram.svg?raw";
 
 interface Props {
   links: string[];
@@ -11,10 +12,10 @@ const { links } = Astro.props;
 ---
 
 <div
-  class="fixed top-0 w-full h-[46px] z-10 px-2 sm:px-4 py-3 bg-black/10 flex items-center backdrop-blur-sm shadow-md"
+  class="fixed top-0 w-full h-[46px] z-10 px-2 sm:px-4 py-3 bg-black/10 flex items-center backdrop-blur-sm shadow-md justify-between"
 >
   <Image
-    class="h-full object-contain object-left justify-self-start flex-shrink-0"
+    class="h-full object-contain object-left justify-self-start flex-shrink-0 max-w-[60px] sm:max-w-[90px]"
     src={LogoImage}
     alt="DOCA"
     width={90}
@@ -22,8 +23,21 @@ const { links } = Astro.props;
     quality="high"
   />
   <div
-    class="flex justify-end sm:justify-center gap-2 sm:gap-8 md:gap-12 xs:mr-2 sm:mr-[90px] flex-1"
+    class="flex justify-end sm:justify-center gap-2 sm:gap-8 md:gap-12 xs:mr-2 flex-1"
   >
     {links.map((link) => <HeaderLink title={link} />)}
+  </div>
+  <div
+    class="md:w-[90px] justify-self-end flex justify-end ml-2 xs:ml-4 xs:pr-2"
+  >
+    <a
+      href="https://www.instagram.com/equipa.doca/"
+      target="_blank"
+      class="text-green text-lg alternate block"
+    >
+      <span class="w-6 h-6 flex items-center">
+        <Fragment set:html={LogoInstagram} />
+      </span>
+    </a>
   </div>
 </div>

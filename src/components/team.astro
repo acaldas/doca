@@ -1,1 +1,150 @@
-<div></div>
+---
+import { Image } from "astro:assets";
+import TeamImage from "../assets/team.jpg";
+
+const team = [
+  {
+    id: encodeURIComponent("Filipa Menano de Almeida"),
+    name: "Filipa Menano de Almeida",
+    job: "Neuropsicóloga e psicoterapeuta",
+    text: "Procura ajudar as pessoas a soltarem as amarras que as impedem de ter uma boa relação com o seu corpo, emoções e sensações, e a alcançarem uma vida mais plena.",
+    cv: [
+      "Membro da Ordem dos Psicólogos Portugueses, Especialista em Psicologia Clínica e Especialidade Avançada em Neuropsicologia CP19653",
+      "Membro da Associação Portuguesa de Terapias Comportamental, Cognitiva e Integrativa",
+      "Fundadora e Diretora da NeuroPsyc",
+      "Experiência Profissional no tratamento das perturbações do Comportamento Alimentar",
+      "Formação especializada na área das perturbações co comportamento alimentar (AMBULIM, CEBRATA)",
+    ],
+  },
+  {
+    id: encodeURIComponent("Inês Neves Caldas"),
+    name: "Inês Neves Caldas",
+    job: "Psiquiatra e psicoterapeuta",
+    text: "Acredita que é possível ajudar as pessoas a recuperar a espontaneidade e liberdade no que toca à alimentação e ao seu corpo.",
+    cv: [
+      "Membro da Ordem dos Médicos (OM 62496), com internato médico na especialidade de Psiquiatria no Centro Hospitalar Psiquiátrico de Lisboa",
+      "Membro da Associação Portuguesa de Terapias Comportamental, Cognitiva e Integrativa",
+      "Formação especializada na área das perturbações co comportamento alimentar (Maudsley approach, FMUL)",
+      "Experiência profissional em centro de referência no tratamento das Doenças do Comportamento Alimentar",
+    ],
+  },
+  {
+    id: encodeURIComponent("Maria Novais da Fonseca"),
+    name: "Maria Novais da Fonseca",
+    job: "Nutricionista",
+    text: "Tem como objetivo ajudar as pessoas a comer de forma equilibrada, flexível, sem dietas restritivas. Mostrar que é possível desfrutar da comida e ter uma mudança definitiva e real na Saúde.",
+    cv: [
+      "Membro da Ordem dos Nutricionistas – 3501N",
+      "Formação especializada, pelo AMBULIM, no tratamento de doenças do comportamento alimentar",
+      "Experiência Clínica no tratamento de doenças do comportamento alimentar",
+    ],
+  },
+];
+---
+
+<div class="flex flex-1 items-stretch lg:items-center pt-6 lg:pt-10">
+  <div
+    class="flex justify-evenly lg:justify-between flex-col lg:flex-row w-full gap-[4vh] lg:gap-[5vw] 2xl:gap-[10vw]"
+  >
+    <div class="flex-1 2xl:w-unset">
+      <div class="max-h-[500px] max-w-[750px] w-full relative">
+        <Image
+          src={TeamImage}
+          class="rounded-lg shadow-md overflow-hidden w-full"
+          alt="A Equipa"
+          loading="lazy"
+        />
+        <div
+          data-member={encodeURIComponent("Inês Neves Caldas")}
+          class="team-member cursor-pointer absolute w-[23%] opacity-0 bottom-0 top-[34%] left-[17%]"
+        >
+        </div>
+        <div
+          data-member={encodeURIComponent("Maria Novais da Fonseca")}
+          class="team-member cursor-pointer absolute w-[19%] opacity-0 bottom-0 top-[13%] left-[40%]"
+        >
+        </div>
+        <div
+          data-member={encodeURIComponent("Filipa Menano de Almeida")}
+          class="team-member cursor-pointer absolute w-[19%] opacity-0 bottom-0 top-[13%] left-[59%]"
+        >
+        </div>
+      </div>
+    </div>
+    <div class="flex-1 flex flex-col 2xl:justify-around">
+      {
+        team.map((member, i) => (
+          <details
+            class="team-details mb-6 lg:mb-[8vh] last:mb-0 group"
+            id={`details-${member.id}`}
+            {...(!i ? { open: true } : {})}
+          >
+            <summary class="text-2xl lg:text-xl xl:text-2xl 2xl:text-3xl cursor-pointer hover:text-green group-open:text-green transition-colors">
+              <b class="mb-3 lg:mb-[3vh]">{member.name}</b>
+              <p class="pl-[21px]">{member.job}</p>
+            </summary>
+            <div class="pt-2 pl-2 max-w-2xl prose">
+              <p class="text-lg">{member.text}</p>
+              <ol class="list-disc mt-2 ml-4">
+                {member.cv?.map((item) => (
+                  <li>{item}</li>
+                ))}
+              </ol>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</div>
+
+<script>
+  function getDetails(element: Element) {
+    const id = element.getAttribute("data-member");
+    return document.getElementById(`details-${id}`);
+  }
+
+  window.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      const elements = document.querySelectorAll(".team-member");
+      elements.forEach((element) => {
+        element.addEventListener("mouseover", () => {
+          const details = getDetails(element);
+          details?.classList.add("text-green");
+        });
+
+        element.addEventListener("mouseleave", () => {
+          const details = getDetails(element);
+          details?.classList.remove("text-green");
+        });
+
+        element.addEventListener("click", () => {
+          const details = getDetails(element);
+          details?.setAttribute("open", "true");
+        });
+        element.addEventListener("toggle", () => {
+          const details = getDetails(element);
+          details?.setAttribute("open", "true");
+        });
+      });
+
+      const allDetails =
+        document.querySelectorAll<HTMLDetailsElement>(".team-details");
+      allDetails.forEach((element) => {
+        const member = element.getAttribute("id");
+
+        element.addEventListener("toggle", () => {
+          if (element.open) {
+            allDetails.forEach((el) => {
+              if (el.getAttribute("id") !== member) {
+                el.removeAttribute("open");
+              }
+            });
+          }
+        });
+      });
+    },
+    false,
+  );
+</script>

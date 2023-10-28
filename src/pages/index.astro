@@ -14,7 +14,9 @@ import SlideItem from "../components/slide-item.astro";
   <main>
     <Slide>
       <SlideItem background="bg-background"><Intro /></SlideItem>
-      <SlideItem title="A Doca" background="bg-blue"><Services /></SlideItem>
+      <SlideItem title="A Doca" background="bg-blue" className="">
+        <Services />
+      </SlideItem>
       <SlideItem title="Equipa" background="bg-yellow"><Team /></SlideItem>
       <SlideItem title="Contactos" background="bg-background">
         <Contact />
@@ -22,3 +24,19 @@ import SlideItem from "../components/slide-item.astro";
     </Slide>
   </main>
 </BaseLayout>
+
+<script>
+  window.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      const element = window.location.hash
+        ? document.querySelector(window.location.hash)
+        : null;
+      if (!element) {
+        return null;
+      }
+      element.scrollIntoView();
+    },
+    false,
+  );
+</script>
