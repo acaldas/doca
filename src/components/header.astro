@@ -2,13 +2,18 @@
 import { Image } from "astro:assets";
 import LogoImage from "../assets/logo.png";
 import HeaderLink from "./header-link.astro";
-import LogoInstagram from "../assets/instagram.svg?raw";
+import _LogoInstagram from "../assets/instagram.svg?raw";
 
 interface Props {
   links: string[];
 }
 
 const { links } = Astro.props;
+
+const LogoInstagram = _LogoInstagram.replace(
+  "svg xmlns",
+  "svg width='24' height='24' xmlns",
+);
 ---
 
 <div
