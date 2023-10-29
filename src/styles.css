@@ -12,7 +12,7 @@
   }
 
   .form-label {
-    @apply text-green text-lg font-medium mb-2 h-7 inline-block;
+    @apply text-green text-lg font-medium mb-2 min-h-[1.75rem] inline-block;
   }
 }
 
