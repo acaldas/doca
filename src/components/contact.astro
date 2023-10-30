@@ -56,26 +56,30 @@ if (Astro.request.method === "POST") {
       class="lg:w-1/2 flex flex-wrap flex-row lg:flex-col justify-between lg:justify-evenly lg:pl-4 pt-9 gap-4"
     >
       <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-2xl mb-1">Email</h3>
+        <h3 class="text-green font-semibold text-lg sm:text-2xl mb-1">Email</h3>
         <a
           href="mailto:geral@equipadoca.pt"
-          class="underline underline-offset-1 pl-1 text-lg"
+          class="underline underline-offset-1 pl-1 text-sm sm:text-lg"
         >
           equipadoca@gmail.com
         </a>
       </div>
       <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-2xl mb-1">Telefone</h3>
+        <h3 class="text-green font-semibold text-lg sm:text-2xl mb-1">
+          Telefone
+        </h3>
         <a
           href="tel:21 796 7418"
-          class="underline underline-offset-1 pl-1 text-lg"
+          class="underline underline-offset-1 pl-1 text-sm sm:text-lg"
         >
           21 581 6427
         </a>
       </div>
       <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-2xl mb-1">Localização</h3>
-        <address class="not-italic pl-1 text-lg">
+        <h3 class="text-green font-semibold text-lg sm:text-2xl mb-1">
+          Localização
+        </h3>
+        <address class="not-italic pl-1 text-sm sm:text-lg">
           Doca <br />
            Av. António Agusto de Aguiar, 42<br />
            Cave Esquerdo<br />
@@ -83,12 +87,14 @@ if (Astro.request.method === "POST") {
         </address>
       </div>
       <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-2xl mb-1">Siga-nos</h3>
-        <div class="pl-1 text-lg">
+        <h3 class="text-green font-semibold text-lg sm:text-2xl mb-2">
+          Siga-nos
+        </h3>
+        <div class="pl-1 text-sm sm:text-lg">
           <a
             href="https://www.instagram.com/equipa.doca/"
             target="_blank"
-            class="text-green text-lg alternate gap-2 inline-flex items-center"
+            class="text-green text-sm sm:text-lg alternate gap-2 inline-flex items-center"
           >
             <span class="inline-block w-5 h-5">
               <Fragment set:html={LogoInstagram} />
@@ -102,7 +108,7 @@ if (Astro.request.method === "POST") {
       <h3 class="text-green font-semibold text-3xl alternate mb-1">
         Contacte-nos
       </h3>
-      <label for="message" class="form-label alternate"
+      <label for="message" class="form-label alternate text-sm sm:text-md"
         >Para marcação ou mais informações</label
       >
       <textarea
@@ -137,7 +143,7 @@ if (Astro.request.method === "POST") {
       <div class="mt-10 self-end w-full">
         <button
           type="submit"
-          class="bg-green hover:bg-green/90 rounded shadow-md text-white text-lg py-2 px-4 w-full mb-2"
+          class="bg-green hover:bg-green/90 rounded shadow-md text-white text-sm sm:text-lg py-2 px-4 w-full mb-2"
           >Enviar</button
         >
         {

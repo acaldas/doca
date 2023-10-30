@@ -8,7 +8,7 @@ const { title, background, className } = Astro.props;
 ---
 
 <div
-  class=`min-h-screen ${background} snap-always snap-start p-8 sm:p-12 md:p-16 lg:p-20 xl:p-28 flex flex-col overflow-x-hidden ${className}`
+  class=`min-h-screen ${background} snap-always snap-start px-8 pt-16 pb-8 sm:p-12 md:p-16 lg:p-20 xl:p-28 flex flex-col overflow-x-hidden ${className}`
   id={title ? encodeURIComponent(title) : undefined}
 >
   {
