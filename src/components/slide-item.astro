@@ -8,8 +8,11 @@ const { title, background, className } = Astro.props;
 ---
 
 <div
-  class=`min-h-screen ${background} snap-always snap-start px-8 pt-16 pb-8 sm:p-12 md:p-16 lg:p-20 xl:p-28 flex flex-col overflow-x-hidden ${className}`
+  class=`slide-item min-h-screen ${background} snap-always snap-start
+    px-8 pt-16 pb-8 sm:p-12 md:p-16 lg:p-20 xl:p-28
+    flex flex-col overflow-x-hidden ${className}`
   id={title ? encodeURIComponent(title) : undefined}
+  data-title={title}
 >
   {
     title && (
@@ -24,3 +27,40 @@ const { title, background, className } = Astro.props;
   }
   <slot />
 </div>
+
+<script>
+  window.addEventListener(
+    "DOMContentLoaded",
+    function () {
+      const slides = document.querySelectorAll(".slide-item");
+      if (!slides) {
+        return;
+      }
+
+      let options = {
+        rootMargin: "0px",
+        threshold: 0.7,
+      };
+
+      let observer = new IntersectionObserver((entries) => {
+        entries.forEach(({ target, isIntersecting }) => {
+          if (!isIntersecting) {
+            return;
+          }
+          const title = target.getAttribute("data-title") || "Intro";
+          window.gtag("event", "screen_view", {
+            screen_name: title,
+          });
+          window.gtag("event", "slide", {
+            content_type: "slide",
+            content_id: title,
+          });
+          observer.unobserve(target);
+        });
+      }, options);
+
+      slides.forEach((slide) => observer.observe(slide));
+    },
+    false,
+  );
+</script>

@@ -153,6 +153,16 @@ const team = [
                 el.removeAttribute("open");
               }
             });
+
+            window.gtag("event", "select_content", {
+              content_type: "team_member",
+              content_id: member,
+            });
+
+            window.gtag("event", "team_member", {
+              content_type: "team_member",
+              content_id: member,
+            });
           }
         });
       });
