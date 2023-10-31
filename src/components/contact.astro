@@ -53,33 +53,33 @@ if (Astro.request.method === "POST") {
 <div class="flex flex-col w-full flex-1 justify-center">
   <div class="flex-grow w-full flex flex-col lg:flex-row gap-5">
     <div
-      class="lg:w-1/2 flex flex-wrap flex-row lg:flex-col justify-between lg:justify-evenly lg:pl-4 pt-9 gap-4"
+      class="lg:w-1/2 flex flex-wrap flex-row lg:flex-col justify-between lg:justify-evenly lg:pl-4 pt-9 gap-4 lg:max-h-[580px]"
     >
       <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-lg sm:text-2xl mb-1">Email</h3>
+        <h3 class="text-green font-semibold text-lg sm:text-xl mb-1">Email</h3>
         <a
           href="mailto:geral@equipadoca.pt"
-          class="underline underline-offset-1 pl-1 text-sm sm:text-lg"
+          class="underline underline-offset-1 pl-1 text-sm sm:text-md"
         >
           equipadoca@gmail.com
         </a>
       </div>
       <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-lg sm:text-2xl mb-1">
+        <h3 class="text-green font-semibold text-lg sm:text-xl mb-1">
           Telefone
         </h3>
         <a
           href="tel:21 796 7418"
-          class="underline underline-offset-1 pl-1 text-sm sm:text-lg"
+          class="underline underline-offset-1 pl-1 text-sm sm:text-md"
         >
           21 581 6427
         </a>
       </div>
       <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-lg sm:text-2xl mb-1">
+        <h3 class="text-green font-semibold text-lg sm:text-xl mb-1">
           Localização
         </h3>
-        <address class="not-italic pl-1 text-sm sm:text-lg">
+        <address class="not-italic pl-1 text-sm sm:text-md">
           Doca <br />
            Av. António Agusto de Aguiar, 42<br />
            Cave Esquerdo<br />
@@ -87,14 +87,14 @@ if (Astro.request.method === "POST") {
         </address>
       </div>
       <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-lg sm:text-2xl mb-2">
+        <h3 class="text-green font-semibold text-lg sm:text-xl mb-2">
           Siga-nos
         </h3>
-        <div class="pl-1 text-sm sm:text-lg">
+        <div class="pl-1 text-sm sm:text-md">
           <a
             href="https://www.instagram.com/equipa.doca/"
             target="_blank"
-            class="text-green text-sm sm:text-lg alternate gap-2 inline-flex items-center"
+            class="text-green text-sm sm:text-md alternate gap-2 inline-flex items-center"
           >
             <span class="inline-block w-5 h-5">
               <Fragment set:html={LogoInstagram} />
@@ -114,7 +114,7 @@ if (Astro.request.method === "POST") {
       <textarea
         id="message"
         name="message"
-        class="flex-1 resize-none w-full min-h-[120px] rounded form-input placeholder:text-green mb-4"
+        class="flex-1 resize-none w-full min-h-[120px] max-h-[230px] rounded form-input placeholder:text-green mb-4"
         placeholder="Envie uma mensagem"
         required></textarea>
       <label for="name" class="form-label">Nome</label>
@@ -143,7 +143,7 @@ if (Astro.request.method === "POST") {
       <div class="mt-10 self-end w-full">
         <button
           type="submit"
-          class="bg-green hover:bg-green/90 rounded shadow-md text-white text-sm sm:text-lg py-2 px-4 w-full mb-2"
+          class="bg-green hover:bg-green/90 rounded shadow-md text-white text-sm sm:text-md py-2 px-4 w-full mb-2"
           >Enviar</button
         >
         {
