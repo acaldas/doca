@@ -1,53 +1,6 @@
 ---
+import ContactForm from "./contact";
 import LogoInstagram from "../assets/instagram.svg?raw";
-import Brevo from "@getbrevo/brevo";
-
-let status: "" | "success" | "error" = "";
-
-if (Astro.request.method === "POST") {
-  try {
-    // Getting posted data from our contact form
-    const data = await Astro.request.formData();
-    const name = data.get("name");
-    const email = data.get("email");
-    const phone = data.get("phone");
-    const message = data.get("message");
-
-    if (!name || !message) {
-      return;
-    }
-    const client = Brevo.ApiClient.instance;
-
-    // Configure API key authorization: api-key
-    const apiKey = client.authentications["api-key"];
-    apiKey.apiKey = import.meta.env.BREVO_API_KEY;
-
-    const apiInstance = new Brevo.TransactionalEmailsApi();
-    const response = await apiInstance.sendTransacEmail({
-      sender: { email: email || "website@equipadoca.pt", name },
-      to: [{ email: import.meta.env.EMAIL_CONTACT, name: "equipadoca.pt" }],
-      subject: `Mensagem de ${name}`,
-      replyTo: { email: email?.toString() || "", name },
-      htmlContent: `
-        <div>
-            <p><b>Nome:</b> ${name ?? "-"}</p>
-            <p><b>Email:</b> ${email ?? "-"}</p>
-            <p><b>Telefone:</b> ${phone ?? "-"}</p>
-            <br/>
-            <hr/>
-            <br/>
-            <p style="white-space: pre-wrap;">${message}</p>
-        </div>`,
-    });
-    if (response.isAxiosError) {
-      throw response;
-    }
-    status = "success";
-  } catch (error) {
-    status = "error";
-    console.error(error);
-  }
-}
 ---
 
 <div class="flex flex-col w-full flex-1 justify-center">
@@ -81,8 +34,10 @@ if (Astro.request.method === "POST") {
         </h3>
         <address class="not-italic pl-1 text-sm sm:text-md">
           Doca <br />
-           Av. António Agusto de Aguiar, 42<br />
-           Cave Esquerdo<br />
+           Av. António Agusto de Aguiar, 42
+          <br />
+           Cave Esquerdo
+          <br />
            1050-016 Lisboa
         </address>
       </div>
@@ -104,56 +59,6 @@ if (Astro.request.method === "POST") {
         </div>
       </div>
     </div>
-    <form method="post" class="lg:max-w-xl flex flex-col">
-      <h3 class="text-green font-semibold text-3xl alternate mb-1">
-        Contacte-nos
-      </h3>
-      <label for="message" class="form-label alternate text-sm sm:text-md"
-        >Para marcação ou mais informações</label
-      >
-      <textarea
-        id="message"
-        name="message"
-        class="flex-1 resize-none w-full min-h-[120px] max-h-[230px] rounded form-input placeholder:text-green mb-4"
-        placeholder="Envie uma mensagem"
-        required></textarea>
-      <label for="name" class="form-label">Nome</label>
-      <input
-        required
-        type="text"
-        id="name"
-        name="name"
-        class="form-input w-full mb-4"
-      />
-      <div class="flex gap-6">
-        <div class="flex-1">
-          <label for="phone" class="form-label">Telefone</label>
-          <input type="tel" id="phone" name="phone" class="form-input w-full" />
-        </div>
-        <div class="flex-1">
-          <label for="email" class="form-label">Email</label>
-          <input
-            type="text"
-            id="email"
-            name="email"
-            class="form-input w-full"
-          />
-        </div>
-      </div>
-      <div class="mt-10 self-end w-full">
-        <button
-          type="submit"
-          class="bg-green hover:bg-green/90 rounded shadow-md text-white text-sm sm:text-md py-2 px-4 w-full mb-2"
-          >Enviar</button
-        >
-        {
-          status === "success" ? (
-            <p class="text-green">Mensagem enviada!</p>
-          ) : status === "error" ? (
-            <p class="text-green">Ocorreu um erro ao enviar mensagem</p>
-          ) : null
-        }
-      </div>
-    </form>
+    <ContactForm client:visible />
   </div>
 </div>

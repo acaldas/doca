@@ -4,5 +4,6 @@
     "incremental": true,
     "jsx": "react-jsx",
     "jsxImportSource": "react"
-  }
+  },
+  "exclude": ["functions/**/*"]
 }
