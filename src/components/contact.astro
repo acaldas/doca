@@ -11,21 +11,11 @@ import LogoInstagram from "../assets/instagram.svg?raw";
       <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
         <h3 class="text-green font-semibold text-lg sm:text-xl mb-1">Email</h3>
         <a
+          id="email-link"
           href="mailto:geral@equipadoca.pt"
           class="underline underline-offset-1 pl-1 text-sm sm:text-md"
         >
           equipadoca@gmail.com
-        </a>
-      </div>
-      <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-lg sm:text-xl mb-1">
-          Telefone
-        </h3>
-        <a
-          href="tel:21 581 6427"
-          class="underline underline-offset-1 pl-1 text-sm sm:text-md"
-        >
-          21 581 6427
         </a>
       </div>
       <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
@@ -62,3 +52,10 @@ import LogoInstagram from "../assets/instagram.svg?raw";
     <ContactForm client:visible />
   </div>
 </div>
+
+<script>
+  const link = document.getElementById("email-link");
+  link?.addEventListener("click", (e) => {
+    e.preventDefault();
+  });
+</script>
