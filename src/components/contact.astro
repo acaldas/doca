@@ -1,61 +1,69 @@
 ---
-import ContactForm from "./contact";
-import LogoInstagram from "../assets/instagram.svg?raw";
+import { Image } from "astro:assets";
+import LogoImage from "../assets/logo_3.svg";
 ---
 
-<div class="flex flex-col w-full flex-1 justify-center">
-  <div class="flex-grow w-full flex flex-col lg:flex-row gap-5">
-    <div
-      class="lg:w-1/2 flex flex-wrap flex-row lg:flex-col justify-between lg:justify-evenly lg:pl-4 pt-9 gap-4 lg:max-h-[580px]"
-    >
-      <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-lg sm:text-xl mb-1">Email</h3>
-        <a
-          id="email-link"
-          href="mailto:geral@equipadoca.pt"
-          class="underline underline-offset-1 pl-1 text-sm sm:text-md"
-        >
-          equipadoca@gmail.com
-        </a>
-      </div>
-      <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-lg sm:text-xl mb-1">
-          Localização
-        </h3>
-        <address class="not-italic pl-1 text-sm sm:text-md">
-          Doca <br />
-           Av. António Agusto de Aguiar, 42
+<Image
+  loading="lazy"
+  src={LogoImage}
+  alt="Doca - Por mais liberdade"
+  class="blur-2xl absolute top-0 bottom-0 right-0 h-full w-auto translate-x-3/4 lg:translate-x-1/2"
+/>
+<div class="w-full h-full flex-1 flex items-center">
+  <div
+    class="w-full max-w-2xl pt-6 lg:pt-10 lg:px-6 flex flex-col items-left flex-grow justify-center text-lg relative z-10 text-prose text-left"
+  >
+    <h3 class="text-green font-semibold text-lg sm:text-xl mb-3">
+      Caso pretenda agendar uma consulta:
+    </h3>
+    <ul class="md:ps-8">
+      <li>
+        <h4 class="py-4 text-green">
+          - de <b>nutrição</b>, envie email para:
           <br />
-           Cave Esquerdo
-          <br />
-           1050-016 Lisboa
-        </address>
-      </div>
-      <div class="basis-full xs:basis-[calc(50%-1rem)] lg:basis-0">
-        <h3 class="text-green font-semibold text-lg sm:text-xl mb-2">
-          Siga-nos
-        </h3>
-        <div class="pl-1 text-sm sm:text-md">
-          <a
-            href="https://www.instagram.com/equipa.doca/"
-            target="_blank"
-            class="text-green text-sm sm:text-md alternate gap-2 inline-flex items-center"
-          >
-            <span class="inline-block w-5 h-5">
-              <Fragment set:html={LogoInstagram} />
-            </span>
-            <span>equipa.doca</span>
-          </a>
-        </div>
-      </div>
-    </div>
-    <ContactForm client:visible />
+          <ul class="pl-3 pt-2">
+            <li>
+              <a href="mailto:info.hbnoad@gmail.com" class="email-link"
+                ><u>info.hbnoad@gmail.com</u></a
+              >
+            </li>
+          </ul>
+        </h4>
+      </li>
+      <li>
+        <h4 class="py-4 text-green">
+          - de <b>psiquiatria, psicoterapia</b> ou <b>psicologia</b>,
+          <br />envie email para:
+        <ul class="pl-3 pt-2">
+          <li>
+            <a href="mailto:geral@inesnevescaldas.pt" class="email-link"
+              ><u>geral@inesnevescaldas.pt</u></a
+            >
+          </li>
+        </ul>
+        </h4>
+      </li>
+      <li>
+        <h4 class="py-4 text-green">
+          - de <b>psicologia</b>, envie email para:
+          <ul class="pl-3 pt-2">
+            <li>
+              <a href="mailto:filipa.menano@neuropsyc.pt" class="email-link"
+                ><u>filipa.menano@neuropsyc.pt</u></a
+              >
+            </li>
+          </ul>
+        </h4>
+      </li>
+    </ul>
   </div>
 </div>
 
 <script>
-  const link = document.getElementById("email-link");
-  link?.addEventListener("click", (e) => {
-    e.preventDefault();
-  });
+  const links = document.getElementsByClassName("email-link");
+  for (const link of links) {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+    });
+  }
 </script>

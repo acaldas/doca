@@ -26,7 +26,11 @@ import SlideItem from "../components/slide-item.astro";
         <Services />
       </SlideItem>
       <SlideItem title="Equipa" background="bg-yellow"><Team /></SlideItem>
-      <SlideItem title="Contactos" background="bg-background">
+      <SlideItem
+        title="Contactos"
+        background="bg-background"
+        className="relative overflow-x-hidden"
+      >
         <Contact />
       </SlideItem>
     </Slide>
@@ -45,6 +49,6 @@ import SlideItem from "../components/slide-item.astro";
       }
       element.scrollIntoView();
     },
-    false
+    false,
   );
 </script>
